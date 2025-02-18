@@ -1,0 +1,23 @@
+#include <iostream>
+
+class HealthMonitor {
+public:
+    static int alertCount;
+    static int getAlertCount() {
+        return alertCount;
+    }
+    void detectHealthIssue() {
+        alertCount++;
+    }
+};
+int HealthMonitor::alertCount = 0;
+
+int main() {
+    HealthMonitor monitor;
+    monitor.detectHealthIssue();
+    monitor.detectHealthIssue();
+    int currentAlerts = HealthMonitor::getAlertCount();
+    std::cout << "Current number of alerts: " << currentAlerts << std::endl;
+
+    return 0;
+}
